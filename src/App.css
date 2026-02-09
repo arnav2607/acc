@@ -1,4 +1,4 @@
-/* /* ================= RESET & BASE ================= */
+/* ================= RESET & BASE ================= */
 * {
   margin: 0;
   padding: 0;
@@ -48,7 +48,6 @@
 .logo {
   height: 56px;
   width: auto;
-  color: #0a2aff;
 }
 
 .header h1 {
@@ -57,6 +56,7 @@
   color: #0a2a66;
 }
 
+/* ================= NAVIGATION ================= */
 .nav-links {
   display: flex;
   gap: 30px;
@@ -66,10 +66,30 @@
   text-decoration: none;
   font-weight: 500;
   color: #333;
+  padding: 10px 18px;
+  border-radius: 999px;
+  transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
+  background: rgba(10, 42, 102, 0.1);
+  box-shadow: inset 0 0 0 2px #0a2a66;
   color: #0a2a66;
+}
+
+/* ================= HAMBURGER ================= */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 26px;
+  height: 3px;
+  background: #0a2a66;
+  border-radius: 4px;
 }
 
 /* ================= HERO ================= */
@@ -226,25 +246,6 @@
   transform: translateY(-10px);
 }
 
-.director-card h4 {
-  color: #7a1d1d;
-  font-size: 22px;
-}
-
-.director-card span {
-  display: block;
-  margin: 8px 0 15px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.vision {
-  margin-top: 25px;
-  padding-top: 20px;
-  border-top: 1px dashed #ccc;
-  font-weight: 600;
-}
-
 /* ================= TRUST ================= */
 .trust-cards {
   display: grid;
@@ -264,11 +265,6 @@
 
 .trust-card:hover {
   transform: translateY(-10px);
-}
-
-.trust-card h4 {
-  color: #7a1d1d;
-  margin-bottom: 10px;
 }
 
 /* ================= CONTACT ================= */
@@ -315,15 +311,33 @@
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background: white;
+    flex-direction: column;
+    gap: 18px;
+    padding: 25px 30px;
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
   .hero,
   .service-cards,
   .directors,
   .trust-cards {
     grid-template-columns: 1fr;
-  }
-
-  .nav-links {
-    display: none;
   }
 
   .section {

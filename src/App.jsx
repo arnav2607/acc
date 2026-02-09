@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
 import { Truck, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { useState } from "react";
 import "./App.css";
 
 export default function App() {
@@ -25,23 +26,39 @@ export default function App() {
 import Logo from "./assets/acclogo.svg";
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="header">
       <div className="logo-area">
-        <img src={Logo} alt="Agrawal Cargo Carrier Logo" className="logo" color="#0a2aff"/>
+        <img
+          src={Logo}
+          alt="Agrawal Cargo Carrier Logo"
+          className="logo"
+        />
         <h1>Agrawal Cargo Carrier</h1>
       </div>
 
-      <nav className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/about">About Us</Link>
-        <Link to="/contact">Contact</Link>
+      {/* Navigation */}
+      <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
+        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        <Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link>
+        <Link to="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
+        <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
       </nav>
+
+      {/* Hamburger Menu */}
+      <div
+        className="menu-toggle"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </header>
   );
 }
-
 
 
 /* ================= HOME ================= */
