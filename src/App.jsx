@@ -208,7 +208,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="footer">
-      © 2026 Agrawal Cargo Carrier | GSTIN: 24ABKPA8901D1Z5
+      © 2026 Agrawal Cargo Carrier | All Rights Reserved |
     </footer>
   );
 }
