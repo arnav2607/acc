@@ -24,7 +24,8 @@ export default function App() {
 function Header() {
   return (
     <header className="header">
-      <h1>Agarwal Cargo Carrier</h1>
+      <h1>Agrawal Cargo Carrier</h1>
+      
       <nav>
         <Link to="/">Home</Link>
         <Link to="/services">Services</Link>
@@ -40,8 +41,8 @@ function Home() {
   return (
     <section className="section hero">
       <div className="hero-text">
-        <h2>Pan-India Logistics for Industrial & Hazardous Gases</h2>
-        <p>LPG • Ammonia • Chemical Transportation</p>
+        <h2>Pioneering Safe Logistics Across India</h2>
+        <p>LPG • Propane • Ammonia • Hazardous Chemicals</p>
 
         <div className="actions">
           <a href="tel:+919979794000">Call Now</a>
@@ -65,43 +66,38 @@ function Home() {
 function Services() {
   return (
     <section className="section services">
-      <h2>Our Services</h2>
+      <h2>Our Services & Infrastructure</h2>
 
       <div className="service-cards">
         <div className="service-card">
-          <img
-            src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=900&q=80"
-            alt="LPG Transport"
-          />
-          <h3>LPG Gas Transportation</h3>
+          <h3>LPG, Propane & Butadiene Transport</h3>
           <p>
-            PESO-approved LPG transportation across India with strict safety
-            checks, trained drivers, and real-time monitoring.
+            We operate a fleet of PESO-approved tank trucks dedicated to LPG,
+            Propane, and Butadiene transportation. Each vehicle undergoes
+            pressure testing and strict compliance checks to ensure zero-risk
+            delivery.
           </p>
+          <p><strong>Fleet Size:</strong> 100+ Tank Trucks</p>
         </div>
 
         <div className="service-card">
-          <img
-            src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=900&q=80"
-            alt="Ammonia Logistics"
-          />
-          <h3>Ammonia Logistics</h3>
+          <h3>Liquid Ammonia & Chemical Logistics</h3>
           <p>
-            Specialized ammonia gas movement using certified tankers and
-            compliance-driven logistics processes.
+            Our ammonia and chemical tankers are engineered for hazardous
+            material movement with advanced safety valves, trained drivers, and
+            real-time monitoring systems.
           </p>
+          <p><strong>Fleet Size:</strong> 50+ Specialized Tankers</p>
         </div>
 
         <div className="service-card">
-          <img
-            src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=900&q=80"
-            alt="Chemical Transport"
-          />
-          <h3>Chemical Transportation</h3>
+          <h3>Tracking, Safety & Compliance</h3>
           <p>
-            Secure industrial chemical transport with safety valves, GPS
-            tracking, and experienced handling teams.
+            All vehicles are GPS and VTS enabled with 24×7 monitoring. Our teams
+            are trained in hazardous material handling, defensive driving, and
+            emergency response protocols.
           </p>
+          <p><strong>Tracking Coverage:</strong> 100%</p>
         </div>
       </div>
     </section>
@@ -112,42 +108,79 @@ function Services() {
 function About() {
   return (
     <section className="section about">
-      <h2>About Us</h2>
+  <h2>About Agrawal Cargo Carrier</h2>
 
-      <p className="about-intro">
-        Agarwal Cargo Carrier is a trusted logistics company specializing in the
-        transportation of industrial and hazardous gases across India.
+  <p className="about-intro">
+    <strong>Agrawal Cargo Carrier</strong> is a professionally managed logistics
+    enterprise specializing in the safe transportation of
+    <strong> LPG, Propane, Ammonia, and Hazardous Chemicals</strong>.
+    We serve leading <strong>PSU oil marketing companies</strong>,
+    refineries, ports, and industrial zones across India.
+  </p>
+
+  {/* TRUST CARDS */}
+  <h3 className="sub-heading">Why Clients Trust Us</h3>
+
+  <div className="trust-cards">
+    <div className="trust-card">
+      <h4>Regulatory Integrity</h4>
+      <p>
+        Strict adherence to <strong>PESO, RTO & Hazardous Goods regulations</strong>.
       </p>
+    </div>
 
-      <div className="directors">
-        <div className="director">
-          <h3>Sanjay Agarwal</h3>
-          <span>Director | 25+ Years Experience</span>
-          <p>
-            With over 25 years in the logistics industry, Sanjay Agarwal laid the
-            foundation of Agarwal Cargo Carrier with a strong focus on safety,
-            trust, and long-term partnerships.
-          </p>
-          <p className="vision">
-            Vision: To build India’s most reliable and safety-driven gas
-            logistics company.
-          </p>
-        </div>
+    <div className="trust-card">
+      <h4>Proven Experience</h4>
+      <p>
+        <strong>25+ years</strong> of serving PSUs and industry leaders.
+      </p>
+    </div>
 
-        <div className="director">
-          <h3>Reyansh Agarwal</h3>
-          <span>Director | Next-Generation Leadership</span>
-          <p>
-            Reyansh Agarwal brings modern operational strategies, technology
-            adoption, and efficiency-focused growth to the organization.
-          </p>
-          <p className="vision">
-            Vision: To scale operations nationwide with digital tracking,
-            compliance excellence, and customer-first service.
-          </p>
-        </div>
-      </div>
-    </section>
+    <div className="trust-card">
+      <h4>Timely Deliveries</h4>
+      <p>
+        Optimized routing ensures <strong>minimal turnaround time</strong>.
+      </p>
+    </div>
+
+    <div className="trust-card">
+      <h4>Safety First</h4>
+      <p>
+        <strong>Zero-compromise</strong> approach to safety & compliance.
+      </p>
+    </div>
+  </div>
+
+  {/* DIRECTORS */}
+  <h3 className="sub-heading">Leadership</h3>
+
+  <div className="directors">
+    <div className="director-card">
+      <h4>Sanjay M. Agrawal</h4>
+      <span>Founder & Director | 25+ Years Experience</span>
+      <p>
+        Founder of Agrawal Cargo Carrier, Sanjay M. Agrawal established the company
+        with a mission to set <strong>new safety benchmarks</strong> in hazardous logistics.
+      </p>
+      <p className="vision">
+        <strong>Vision:</strong> To remain India’s most trusted hazardous logistics partner.
+      </p>
+    </div>
+
+    <div className="director-card">
+      <h4>Reyansh Agrawal</h4>
+      <span>Director | Next-Generation Leadership</span>
+      <p>
+        Reyansh Agrawal focuses on <strong>digital tracking, operational efficiency</strong>,
+        and scalable growth while maintaining compliance-first operations.
+      </p>
+      <p className="vision">
+        <strong>Vision:</strong> Technology-driven, customer-first nationwide logistics.
+      </p>
+    </div>
+  </div>
+</section>
+
   );
 }
 
@@ -155,11 +188,13 @@ function About() {
 function Contact() {
   return (
     <section className="section contact">
-      <h2>Contact Us</h2>
+      <h2>Contact Information</h2>
 
-      <p><Phone /> Reyansh Agarwal – 99797 94000</p>
-      <p><Mail /> info@agarwalcargo.com</p>
-      <p><MapPin /> D 70-71, Main Market, Gandhidham – 370201, Gujarat</p>
+      <p><Phone /> +91 98250 76200 / +91 99797 94000</p>
+      <p><Mail /> sma0831@gmail.com</p>
+      <p>
+        <MapPin /> D-70/71, Main Market, Gandhidham, Kutch – 370201, Gujarat
+      </p>
 
       <iframe
         src="https://www.google.com/maps?q=Gandhidham%20Main%20Market&output=embed"
@@ -173,7 +208,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="footer">
-      © 2026 Agarwal Cargo Carrier. All rights reserved.
+      © 2026 Agrawal Cargo Carrier | GSTIN: 24ABKPA8901D1Z5
     </footer>
   );
 }
