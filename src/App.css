@@ -1,132 +1,197 @@
+/* /* ================= RESET & BASE ================= */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
 .app {
   min-height: 100vh;
 }
 
-/* HEADER */
+/* ================= GLOBAL SECTIONS ================= */
+.section {
+  padding: 100px 60px;
+}
+
+.section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.section p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* ================= HEADER ================= */
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  background: #ffffff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
-  background: #7a1d1d;
-  color: white;
-  padding: 16px 40px;
+  z-index: 100;
+}
+
+.logo-area {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .header nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .header nav a {
-    margin: 6px 12px;
-    font-size: 14px;
-  }
+  gap: 14px;
 }
 
+.logo {
+  height: 56px;
+  width: auto;
+  color: #0a2aff;
+}
 
-.header nav a {
-  color: white;
-  margin-left: 20px;
+.header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0a2a66;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
   text-decoration: none;
   font-weight: 500;
+  color: #333;
 }
 
-/* SECTIONS */
-.section {
-  padding: 80px 40px;
+.nav-links a:hover {
+  color: #0a2a66;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  padding: 100px 60px;
   align-items: center;
-  gap: 40px;
-  position: relative;
+  gap: 60px;
+}
+
+.hero-text h2 {
+  font-size: 40px;
+  color: #0a2a66;
+  margin-bottom: 12px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+}
+
+.actions a {
+  padding: 15px 30px;
+  background: #0a2aff;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.actions a:last-child {
+  background: #25d366;
 }
 
 .hero img {
   width: 100%;
-  border-radius: 16px;
+  border-radius: 14px;
 }
 
-.actions a {
-  display: inline-block;
-  margin-right: 15px;
-  padding: 12px 24px;
-  background: #7a1d1d;
-  color: white;
-  border-radius: 30px;
-  text-decoration: none;
-}
-
-/* TRUCK */
+/* ================= TRUCK ANIMATION ================= */
 .truck-animation {
   position: absolute;
   bottom: 20px;
   left: -60px;
   animation: moveTruck 12s linear infinite;
+  display: flex;
+}
+
+.truck-space {
+  padding: 10px;
 }
 
 @keyframes moveTruck {
-  to { left: 110%; }
+  to {
+    left: 110%;
+  }
 }
 
-/* SERVICES */
+/* ================= SERVICES ================= */
+.services {
+  background: #fafafa;
+}
+
 .services h2 {
   text-align: center;
   color: #7a1d1d;
 }
 
+.sub-heading {
+  max-width: 700px;
+  margin: 20px auto 70px;
+  text-align: center;
+  color: #666;
+}
+
 .service-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 50px;
+  gap: 50px;
 }
 
 .service-card {
   background: white;
-  border-radius: 18px;
+  border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  transition: transform 0.3s;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-12px);
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.15);
 }
 
 .service-card img {
   width: 100%;
-  height: 220px;
+  height: 240px;
   object-fit: cover;
 }
 
 .service-card h3 {
-  padding: 20px;
+  padding: 25px 25px 10px;
   color: #7a1d1d;
+  font-size: 22px;
 }
 
 .service-card p {
-  padding: 0 20px 30px;
+  padding: 0 25px 35px;
+  line-height: 1.6;
 }
 
-/* ABOUT */
+/* ================= ABOUT ================= */
+.about {
+  background: white;
+}
+
 .about h2 {
   text-align: center;
   color: #7a1d1d;
@@ -134,45 +199,100 @@
 
 .about-intro {
   max-width: 900px;
-  margin: 20px auto 60px;
+  margin: 0 auto 90px;
   text-align: center;
+  padding: 45px;
+  border: 1px solid #eee;
+  border-radius: 22px;
+  background: #fafafa;
 }
 
 .directors {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 60px;
 }
 
-.director {
-  background: #f6f1e9;
-  padding: 40px;
-  border-radius: 16px;
+.director-card {
+  background: #ffffff;
+  padding: 45px;
+  border-radius: 22px;
+  border-left: 6px solid #7a1d1d;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.director-card:hover {
+  transform: translateY(-10px);
+}
+
+.director-card h4 {
+  color: #7a1d1d;
+  font-size: 22px;
+}
+
+.director-card span {
+  display: block;
+  margin: 8px 0 15px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .vision {
-  margin-top: 20px;
-  font-weight: bold;
-  color: #7a1d1d;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px dashed #ccc;
+  font-weight: 600;
 }
 
-/* CONTACT */
+/* ================= TRUST ================= */
+.trust-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 70px;
+}
+
+.trust-card {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+
+.trust-card:hover {
+  transform: translateY(-10px);
+}
+
+.trust-card h4 {
+  color: #7a1d1d;
+  margin-bottom: 10px;
+}
+
+/* ================= CONTACT ================= */
+.contact {
+  background: #fafafa;
+}
+
 .contact iframe {
   width: 100%;
-  height: 300px;
-  margin-top: 30px;
-  border-radius: 16px;
+  height: 380px;
+  margin-top: 50px;
+  border-radius: 22px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 .footer {
   background: #7a1d1d;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 25px;
 }
 
-/* FLOATING */
+/* ================= FLOATING ================= */
 .floating {
   position: fixed;
   bottom: 25px;
@@ -192,91 +312,25 @@
 .floating a:last-child {
   background: #7a1d1d;
 }
-.sub-heading {
-  text-align: center;
-  margin: 60px 0 30px;
-  color: #7a1d1d;
-}
 
-/* TRUST CARDS */
-.trust-cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-  margin-bottom: 70px;
-}
-
-.trust-card {
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.trust-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-}
-
-.trust-card h4 {
-  color: #7a1d1d;
-  margin-bottom: 10px;
-}
-
-/* DIRECTORS */
-.directors {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.director-card {
-  background: #f6f1e9;
-  padding: 40px;
-  border-radius: 18px;
-  transition: transform 0.3s;
-}
-
-.director-card:hover {
-  transform: translateY(-8px);
-}
-
-.director-card h4 {
-  color: #7a1d1d;
-}
-
-.director-card span {
-  display: block;
-  margin: 8px 0 15px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.vision {
-  margin-top: 20px;
-  font-weight: bold;
-  color: #7a1d1d;
-}
-
-/* MOBILE */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
+  .hero,
+  .service-cards,
+  .directors,
   .trust-cards {
     grid-template-columns: 1fr;
   }
 
-  .directors {
-    grid-template-columns: 1fr;
+  .nav-links {
+    display: none;
   }
-}
 
+  .section {
+    padding: 70px 25px;
+  }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .hero,
-  .service-cards,
-  .directors {
-    grid-template-columns: 1fr;
+  .hero {
+    text-align: center;
   }
 }

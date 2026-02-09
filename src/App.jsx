@@ -21,12 +21,18 @@ export default function App() {
 }
 
 /* ================= HEADER ================= */
+
+import Logo from "./assets/acclogo.svg";
+
 function Header() {
   return (
     <header className="header">
-      <h1>Agrawal Cargo Carrier</h1>
-      
-      <nav>
+      <div className="logo-area">
+        <img src={Logo} alt="Agrawal Cargo Carrier Logo" className="logo" color="#0a2aff"/>
+        <h1>Agrawal Cargo Carrier</h1>
+      </div>
+
+      <nav className="nav-links">
         <Link to="/">Home</Link>
         <Link to="/services">Services</Link>
         <Link to="/about">About Us</Link>
@@ -35,6 +41,8 @@ function Header() {
     </header>
   );
 }
+
+
 
 /* ================= HOME ================= */
 function Home() {
@@ -55,9 +63,21 @@ function Home() {
         alt="Logistics Truck"
       />
 
-      <div className="truck-animation">
-        <Truck size={48} />
-      </div>
+      {/* <div className="truck-animation">
+        <div className="truck-space"><Truck size={50}/></div>
+        <div className="truck-space"><Truck size={50}/></div>
+        <div className="truck-space"><Truck size={50}/></div>
+        <div className="truck-space"><Truck size={50}/></div>
+        <div className="truck-space"><Truck size={50}/></div>
+        <div className="truck-space"><Truck size={50}/></div>
+        <div className="truck-space"><Truck size={50}/></div>
+        <div className="truck-space"><Truck size={50}/></div>
+        <div className="truck-space"><Truck size={50}/></div>
+        <div className="truck-space"><Truck size={50}/></div>
+        <div className="truck-space"><Truck size={50}/></div>
+        <div className="truck-space"><Truck size={50}/></div>
+        
+      </div> */}
     </section>
   );
 }
