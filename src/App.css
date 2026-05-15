@@ -323,8 +323,14 @@ body {
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .service-card-new {
@@ -542,36 +548,160 @@ body {
 .footer-new {
   background: var(--primary);
   color: var(--white);
-  padding: 4rem 0;
+  padding: 6rem 0 2rem;
+  margin-top: 4rem;
 }
 
-.footer-content {
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.footer-brand-section .footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.footer-brand-section .footer-logo img {
+  height: 40px;
+}
+
+.footer-brand-section .footer-logo span {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.footer-desc {
+  opacity: 0.7;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: var(--accent);
+  transform: translateY(-3px);
+}
+
+.footer-grid h4 {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-grid ul {
+  list-style: none;
+}
+
+.footer-grid ul li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.footer-grid ul li a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-grid ul li a:hover {
+  color: var(--accent);
+}
+
+.footer-grid ul li svg {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.safety-badge {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.safety-badge svg {
+  color: var(--gold);
+}
+
+.safety-badge strong {
+  display: block;
+  font-size: 1rem;
+}
+
+.safety-badge span {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.6;
 }
 
-.footer-brand img {
-  height: 40px;
-  margin-bottom: 1rem;
-}
-
-.footer-links {
+.footer-legal {
   display: flex;
   gap: 2rem;
 }
 
-.footer-links a {
+.footer-legal a {
   color: var(--white);
   text-decoration: none;
-  opacity: 0.7;
-  transition: opacity 0.2s;
 }
 
-.footer-links a:hover {
-  opacity: 1;
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
 }
 
 /* ================= FLOATING ================= */

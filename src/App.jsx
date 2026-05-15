@@ -78,7 +78,7 @@ function Home() {
     >
       <section className="hero">
         <div className="container hero-container">
-          <motion.div 
+          <motion.div
             className="hero-text"
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -113,7 +113,7 @@ function Home() {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             className="hero-image"
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -182,7 +182,7 @@ function Services() {
   ];
 
   return (
-    <motion.section 
+    <motion.section
       className="section services-page"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -197,8 +197,8 @@ function Services() {
 
         <div className="service-grid">
           {services.map((service, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               className="service-card-new"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -227,7 +227,7 @@ function Services() {
 /* ================= ABOUT ================= */
 function About() {
   return (
-    <motion.section 
+    <motion.section
       className="section about-page"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -281,7 +281,7 @@ function About() {
 /* ================= CONTACT ================= */
 function Contact() {
   return (
-    <motion.section 
+    <motion.section
       className="section contact-page"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -292,7 +292,7 @@ function Contact() {
           <div className="contact-info">
             <h2>Get in Touch</h2>
             <p>Ready to discuss your logistics needs? Our team is here to help.</p>
-            
+
             <div className="contact-methods">
               <a href="tel:+919825076200" className="contact-method">
                 <Phone />
@@ -317,7 +317,7 @@ function Contact() {
               </div>
             </div>
           </div>
-          
+
           <div className="contact-map">
             <iframe
               src="https://www.google.com/maps?q=Gandhidham%20Main%20Market&output=embed"
@@ -336,16 +336,57 @@ function Footer() {
   return (
     <footer className="footer-new">
       <div className="container">
-        <div className="footer-content">
-          <div className="footer-brand">
-            <img src={Logo} alt="Logo" />
-            <p>© 2026 Agrawal Cargo Carrier. Safety and Reliability in every mile.</p>
+        <div className="footer-grid">
+          <div className="footer-brand-section">
+            <Link to="/" className="footer-logo">
+              <img src={Logo} alt="Logo" />
+              <span>Agrawal Cargo Carrier</span>
+            </Link>
+            <p className="footer-desc">
+              Pioneering safe and sustainable hazardous material logistics across India for over 25 years. 
+              Certified, trusted, and reliable.
+            </p>
+            <div className="footer-socials">
+              <a href="https://wa.me/919979794000" className="social-icon"><MessageCircle size={20} /></a>
+              <a href="tel:+919979794000" className="social-icon"><Phone size={20} /></a>
+            </div>
           </div>
-          <div className="footer-links">
-            <Link to="/">Home</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
+
+          <div className="footer-links-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/services">Services</Link></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
+            </ul>
+          </div>
+
+          <div className="footer-contact-section">
+            <h4>Contact Details</h4>
+            <ul>
+              <li><Phone size={16} /> +91 99797 94000</li>
+              <li><Mail size={16} /> sma0831@gmail.com</li>
+              <li><MapPin size={16} /> Gandhidham, Kutch, Gujarat</li>
+            </ul>
+          </div>
+
+          <div className="footer-badge-section">
+            <div className="safety-badge">
+              <Shield size={32} />
+              <div>
+                <strong>Safety First</strong>
+                <span>PESO Certified</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="footer-bottom">
+          <p>© 2026 Agrawal Cargo Carrier. All Rights Reserved.</p>
+          <div className="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
           </div>
         </div>
       </div>
@@ -357,7 +398,7 @@ function Footer() {
 function FloatingButtons() {
   return (
     <div className="floating-new">
-      <motion.a 
+      <motion.a
         href="https://wa.me/919979794000"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
@@ -365,7 +406,7 @@ function FloatingButtons() {
       >
         <MessageCircle size={28} />
       </motion.a>
-      <motion.a 
+      <motion.a
         href="tel:+919979794000"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
