@@ -297,17 +297,17 @@ function Contact() {
               <a href="tel:+919825076200" className="contact-method">
                 <Phone />
                 <div>
-                  <span>Call Us</span>
+                  <span>Phone Numbers</span>
                   <strong>+91 98250 76200</strong>
                   <strong className="sub-detail">+91 99797 94000</strong>
                 </div>
               </a>
-              <a href="mailto:acc@agrawalcargocarrier.com" className="contact-method official">
+              <a href="mailto:acc@agrawalcargocarrier.com" className="contact-method">
                 <Mail />
                 <div>
-                  <span className="official-label">Official Domain Email</span>
-                  <strong className="domain-email">acc@agrawalcargocarrier.com</strong>
-                  <span className="sub-detail">sma0831@gmail.com</span>
+                  <span>Email Addresses</span>
+                  <strong>acc@agrawalcargocarrier.com</strong>
+                  <strong className="sub-detail">sma0831@gmail.com</strong>
                 </div>
               </a>
               <div className="contact-method">
@@ -365,11 +365,26 @@ function Footer() {
           </div>
 
           <div className="footer-contact-section">
-            <h4>Contact Details</h4>
-            <ul>
-              <li><Phone size={16} /> <span>+91 98250 76200<br/>+91 99797 94000</span></li>
-              <li><Mail size={16} /> <span>acc@agrawalcargocarrier.com<br/>sma0831@gmail.com</span></li>
-              <li><MapPin size={16} /> Gandhidham, Kutch, Gujarat</li>
+            <h4>Contact Info</h4>
+            <ul className="footer-contact-list">
+              <li>
+                <Phone size={16} />
+                <div className="footer-links-stack">
+                  <a href="tel:+919825076200">+91 98250 76200</a>
+                  <a href="tel:+919979794000">+91 99797 94000</a>
+                </div>
+              </li>
+              <li>
+                <Mail size={16} />
+                <div className="footer-links-stack">
+                  <a href="mailto:acc@agrawalcargocarrier.com">acc@agrawalcargocarrier.com</a>
+                  <a href="mailto:sma0831@gmail.com">sma0831@gmail.com</a>
+                </div>
+              </li>
+              <li>
+                <MapPin size={16} />
+                <span>Gandhidham, Kutch, Gujarat</span>
+              </li>
             </ul>
           </div>
 
