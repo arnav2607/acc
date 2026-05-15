@@ -1,20 +1,28 @@
-import { Routes, Route, Link } from "react-router-dom";
-import { Truck, Phone, Mail, MapPin, MessageCircle } from "lucide-react";
-import { useState } from "react";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Truck, Phone, Mail, MapPin, MessageCircle, Shield, Clock, Award, CheckCircle2, Menu, X, ChevronRight, Droplets, Zap } from "lucide-react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "./App.css";
 
+// Assets
+import Logo from "./assets/acclogo.svg";
+import LngImage from "./assets/lng.png";
+import HydrogenImage from "./assets/hydrogen.png";
+
 export default function App() {
+  const location = useLocation();
+
   return (
     <div className="app">
       <Header />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </AnimatePresence>
       <Footer />
       <FloatingButtons />
     </div>
@@ -22,230 +30,325 @@ export default function App() {
 }
 
 /* ================= HEADER ================= */
-
-import Logo from "./assets/acclogo.svg";
-
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="header">
-      <div className="logo-area">
-        <img
-          src={Logo}
-          alt="Agrawal Cargo Carrier Logo"
-          className="logo"
-        />
-        <h1>Agrawal Cargo Carrier</h1>
-      </div>
+    <header className={`header ${scrolled ? "scrolled" : ""}`}>
+      <div className="container header-container">
+        <Link to="/" className="logo-area">
+          <img src={Logo} alt="Agrawal Cargo Carrier Logo" className="logo" />
+          <div className="logo-text">
+            <h1>Agrawal Cargo Carrier</h1>
+            <span>Safe & Sustainable Logistics</span>
+          </div>
+        </Link>
 
-      {/* Navigation */}
-      <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
-        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-        <Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link>
-        <Link to="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
-        <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
-      </nav>
+        <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
+          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+          <Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link>
+          <Link to="/about" onClick={() => setMenuOpen(false)}>About Us</Link>
+          <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+          <a href="tel:+919979794000" className="nav-cta">Call Now</a>
+        </nav>
 
-      {/* Hamburger Menu */}
-      <div
-        className="menu-toggle"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
+        <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
     </header>
   );
 }
 
-
 /* ================= HOME ================= */
 function Home() {
   return (
-    <section className="section hero">
-      <div className="hero-text">
-        <h2>Pioneering Safe Logistics Across India</h2>
-        <p>LPG • Propane • Ammonia • Hazardous Chemicals</p>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <section className="hero">
+        <div className="container hero-container">
+          <motion.div 
+            className="hero-text"
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <div className="badge">Pioneering Logistics</div>
+            <h2>Fueling India's Future with <span className="text-gradient">Sustainable Energy</span></h2>
+            <p>Specializing in safe transportation of LNG, Green Hydrogen, LPG, Propane, and Ammonia across the nation.</p>
 
-        <div className="actions">
-          <a href="tel:+919979794000">Call Now</a>
-          <a href="https://wa.me/919979794000">WhatsApp</a>
+            <div className="actions">
+              <a href="tel:+919979794000" className="btn btn-primary">
+                Get a Quote <ChevronRight size={20} />
+              </a>
+              <a href="https://wa.me/919979794000" className="btn btn-secondary">
+                <MessageCircle size={20} /> WhatsApp
+              </a>
+            </div>
+
+            <div className="stats">
+              <div className="stat-item">
+                <strong>25+</strong>
+                <span>Years Exp.</span>
+              </div>
+              <div className="stat-item">
+                <strong>150+</strong>
+                <span>Fleet Size</span>
+              </div>
+              <div className="stat-item">
+                <strong>100%</strong>
+                <span>Safety Record</span>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="hero-image"
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            <div className="image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=80"
+                alt="Logistics Truck"
+              />
+              <div className="image-overlay-card">
+                <Shield className="icon-gold" />
+                <div>
+                  <h4>PESO Approved</h4>
+                  <p>Certified Hazardous Transport</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </div>
+      </section>
 
-      <img
-        src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=80"
-        alt="Logistics Truck"
-      />
-
-      {/* <div className="truck-animation">
-        <div className="truck-space"><Truck size={50}/></div>
-        <div className="truck-space"><Truck size={50}/></div>
-        <div className="truck-space"><Truck size={50}/></div>
-        <div className="truck-space"><Truck size={50}/></div>
-        <div className="truck-space"><Truck size={50}/></div>
-        <div className="truck-space"><Truck size={50}/></div>
-        <div className="truck-space"><Truck size={50}/></div>
-        <div className="truck-space"><Truck size={50}/></div>
-        <div className="truck-space"><Truck size={50}/></div>
-        <div className="truck-space"><Truck size={50}/></div>
-        <div className="truck-space"><Truck size={50}/></div>
-        <div className="truck-space"><Truck size={50}/></div>
-        
-      </div> */}
-    </section>
+      <section className="features-strip">
+        <div className="container flex-row">
+          <div className="feature-item"><CheckCircle2 /> Real-time GPS Tracking</div>
+          <div className="feature-item"><CheckCircle2 /> 24/7 Support</div>
+          <div className="feature-item"><CheckCircle2 /> Professional Drivers</div>
+          <div className="feature-item"><CheckCircle2 /> Safety First Protocol</div>
+        </div>
+      </section>
+    </motion.div>
   );
 }
 
 /* ================= SERVICES ================= */
 function Services() {
+  const services = [
+    {
+      title: "LNG Logistics",
+      desc: "Comprehensive LNG transportation solutions using advanced cryogenic tankers. We ensure safe and efficient delivery of Liquefied Natural Gas to industrial and commercial hubs.",
+      fleet: "Specialized Cryogenic Fleet",
+      image: LngImage,
+      icon: <Droplets className="service-icon" />
+    },
+    {
+      title: "Green Hydrogen Transport",
+      desc: "Pioneering the future of clean energy with specialized high-pressure hydrogen transport solutions, supporting India's transition to a net-zero economy.",
+      fleet: "Next-Gen H2 Tankers",
+      image: HydrogenImage,
+      icon: <Zap className="service-icon" />
+    },
+    {
+      title: "LPG & Propane",
+      desc: "Robust fleet of PESO-approved tank trucks for LPG, Propane, and Butadiene. Each vehicle undergoes rigorous pressure testing for zero-risk delivery.",
+      fleet: "100+ Tank Trucks",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+      icon: <Truck className="service-icon" />
+    },
+    {
+      title: "Liquid Ammonia",
+      desc: "Engineered for hazardous material movement with advanced safety valves, specialized monitoring, and highly trained emergency response teams.",
+      fleet: "50+ Specialized Tankers",
+      image: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80",
+      icon: <Shield className="service-icon" />
+    }
+  ];
+
   return (
-    <section className="section services">
-      <h2>Our Services & Infrastructure</h2>
-
-      <div className="service-cards">
-        <div className="service-card">
-          <h3>LPG, Propane & Butadiene Transport</h3>
-          <p>
-            We operate a fleet of PESO-approved tank trucks dedicated to LPG,
-            Propane, and Butadiene transportation. Each vehicle undergoes
-            pressure testing and strict compliance checks to ensure zero-risk
-            delivery.
-          </p>
-          <p><strong>Fleet Size:</strong> 100+ Tank Trucks</p>
+    <motion.section 
+      className="section services-page"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+    >
+      <div className="container">
+        <div className="section-header">
+          <span className="badge">Our Expertise</span>
+          <h2>Comprehensive Infrastructure</h2>
+          <p>We provide world-class logistics for hazardous and energy-critical materials.</p>
         </div>
 
-        <div className="service-card">
-          <h3>Liquid Ammonia & Chemical Logistics</h3>
-          <p>
-            Our ammonia and chemical tankers are engineered for hazardous
-            material movement with advanced safety valves, trained drivers, and
-            real-time monitoring systems.
-          </p>
-          <p><strong>Fleet Size:</strong> 50+ Specialized Tankers</p>
-        </div>
-
-        <div className="service-card">
-          <h3>Tracking, Safety & Compliance</h3>
-          <p>
-            All vehicles are GPS and VTS enabled with 24×7 monitoring. Our teams
-            are trained in hazardous material handling, defensive driving, and
-            emergency response protocols.
-          </p>
-          <p><strong>Tracking Coverage:</strong> 100%</p>
+        <div className="service-grid">
+          {services.map((service, index) => (
+            <motion.div 
+              key={index} 
+              className="service-card-new"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <div className="service-card-image">
+                <img src={service.image} alt={service.title} />
+                <div className="service-icon-wrapper">{service.icon}</div>
+              </div>
+              <div className="service-card-content">
+                <h3>{service.title}</h3>
+                <p>{service.desc}</p>
+                <div className="service-meta">
+                  <span className="fleet-tag"><strong>Fleet:</strong> {service.fleet}</span>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
 /* ================= ABOUT ================= */
 function About() {
   return (
-    <section className="section about">
-  <h2>About Agrawal Cargo Carrier</h2>
+    <motion.section 
+      className="section about-page"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+    >
+      <div className="container">
+        <div className="about-hero">
+          <div className="about-hero-text">
+            <h2>Decades of Trust in <span className="text-gradient">Hazardous Logistics</span></h2>
+            <p>Agrawal Cargo Carrier is a professionally managed logistics enterprise specializing in the safe transportation of critical energy resources and industrial chemicals across India.</p>
+          </div>
+        </div>
 
-  <p className="about-intro">
-    <strong>Agrawal Cargo Carrier</strong> is a professionally managed logistics
-    enterprise specializing in the safe transportation of
-    <strong> LPG, Propane, Ammonia, and Hazardous Chemicals</strong>.
-    We serve leading <strong>PSU oil marketing companies</strong>,
-    refineries, ports, and industrial zones across India.
-  </p>
+        <div className="trust-grid">
+          {[
+            { icon: <Shield />, title: "Regulatory Integrity", text: "Strict adherence to PESO, RTO & Hazardous Goods regulations." },
+            { icon: <Award />, title: "Proven Experience", text: "25+ years of excellence serving PSUs and industry leaders." },
+            { icon: <Clock />, title: "Timely Deliveries", text: "Optimized routing ensures minimal turnaround time." },
+            { icon: <CheckCircle2 />, title: "Safety First", text: "Zero-compromise approach to safety & compliance protocols." }
+          ].map((item, i) => (
+            <div key={i} className="trust-card-new">
+              <div className="trust-icon">{item.icon}</div>
+              <h4>{item.title}</h4>
+              <p>{item.text}</p>
+            </div>
+          ))}
+        </div>
 
-  {/* TRUST CARDS */}
-  <h3 className="sub-heading">Why Clients Trust Us</h3>
-
-  <div className="trust-cards">
-    <div className="trust-card">
-      <h4>Regulatory Integrity</h4>
-      <p>
-        Strict adherence to <strong>PESO, RTO & Hazardous Goods regulations</strong>.
-      </p>
-    </div>
-
-    <div className="trust-card">
-      <h4>Proven Experience</h4>
-      <p>
-        <strong>25+ years</strong> of serving PSUs and industry leaders.
-      </p>
-    </div>
-
-    <div className="trust-card">
-      <h4>Timely Deliveries</h4>
-      <p>
-        Optimized routing ensures <strong>minimal turnaround time</strong>.
-      </p>
-    </div>
-
-    <div className="trust-card">
-      <h4>Safety First</h4>
-      <p>
-        <strong>Zero-compromise</strong> approach to safety & compliance.
-      </p>
-    </div>
-  </div>
-
-  {/* DIRECTORS */}
-  <h3 className="sub-heading">Leadership</h3>
-
-  <div className="directors">
-    <div className="director-card">
-      <h4>Sanjay M. Agrawal</h4>
-      <span>Founder & Director | 25+ Years Experience</span>
-      <p>
-        Founder of Agrawal Cargo Carrier, Sanjay M. Agrawal established the company
-        with a mission to set <strong>new safety benchmarks</strong> in hazardous logistics.
-      </p>
-      <p className="vision">
-        <strong>Vision:</strong> To remain India’s most trusted hazardous logistics partner.
-      </p>
-    </div>
-
-    <div className="director-card">
-      <h4>Reyansh Agrawal</h4>
-      <span>Director | Next-Generation Leadership</span>
-      <p>
-        Reyansh Agrawal focuses on <strong>digital tracking, operational efficiency</strong>,
-        and scalable growth while maintaining compliance-first operations.
-      </p>
-      <p className="vision">
-        <strong>Vision:</strong> Technology-driven, customer-first nationwide logistics.
-      </p>
-    </div>
-  </div>
-</section>
-
+        <div className="leadership-section">
+          <h3>Our Leadership</h3>
+          <div className="directors-grid">
+            <div className="director-card-new">
+              <h4>Sanjay M. Agrawal</h4>
+              <span className="role">Founder & Director | 25+ Years Experience</span>
+              <p>Establishing new safety benchmarks in hazardous logistics since the company's inception.</p>
+              <div className="vision-quote">"To remain India’s most trusted hazardous logistics partner."</div>
+            </div>
+            <div className="director-card-new">
+              <h4>Reyansh Agrawal</h4>
+              <span className="role">Director | Next-Gen Leadership</span>
+              <p>Driving digital transformation and operational efficiency with technology-first initiatives.</p>
+              <div className="vision-quote">"Technology-driven, customer-first nationwide logistics."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.section>
   );
 }
 
 /* ================= CONTACT ================= */
 function Contact() {
   return (
-    <section className="section contact">
-      <h2>Contact Information</h2>
-
-      <p><Phone /> +91 98250 76200 / +91 99797 94000</p>
-      <p><Mail /> sma0831@gmail.com</p>
-      <p>
-        <MapPin /> D-70/71, Main Market, Gandhidham, Kutch – 370201, Gujarat
-      </p>
-
-      <iframe
-        src="https://www.google.com/maps?q=Gandhidham%20Main%20Market&output=embed"
-        loading="lazy"
-      />
-    </section>
+    <motion.section 
+      className="section contact-page"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+    >
+      <div className="container">
+        <div className="contact-grid">
+          <div className="contact-info">
+            <h2>Get in Touch</h2>
+            <p>Ready to discuss your logistics needs? Our team is here to help.</p>
+            
+            <div className="contact-methods">
+              <a href="tel:+919825076200" className="contact-method">
+                <Phone />
+                <div>
+                  <span>Call Us</span>
+                  <strong>+91 98250 76200</strong>
+                </div>
+              </a>
+              <a href="mailto:sma0831@gmail.com" className="contact-method">
+                <Mail />
+                <div>
+                  <span>Email Us</span>
+                  <strong>sma0831@gmail.com</strong>
+                </div>
+              </a>
+              <div className="contact-method">
+                <MapPin />
+                <div>
+                  <span>Visit Office</span>
+                  <strong>D-70/71, Main Market, Gandhidham, Kutch – 370201, Gujarat</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="contact-map">
+            <iframe
+              src="https://www.google.com/maps?q=Gandhidham%20Main%20Market&output=embed"
+              loading="lazy"
+              title="Office Location"
+            />
+          </div>
+        </div>
+      </div>
+    </motion.section>
   );
 }
 
 /* ================= FOOTER ================= */
 function Footer() {
   return (
-    <footer className="footer">
-      © 2026 Agrawal Cargo Carrier | All Rights Reserved |
+    <footer className="footer-new">
+      <div className="container">
+        <div className="footer-content">
+          <div className="footer-brand">
+            <img src={Logo} alt="Logo" />
+            <p>© 2026 Agrawal Cargo Carrier. Safety and Reliability in every mile.</p>
+          </div>
+          <div className="footer-links">
+            <Link to="/">Home</Link>
+            <Link to="/services">Services</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }
@@ -253,13 +356,24 @@ function Footer() {
 /* ================= FLOATING BUTTONS ================= */
 function FloatingButtons() {
   return (
-    <div className="floating">
-      <a href="https://wa.me/919979794000">
-        <MessageCircle />
-      </a>
-      <a href="tel:+919979794000">
-        <Phone />
-      </a>
+    <div className="floating-new">
+      <motion.a 
+        href="https://wa.me/919979794000"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="whatsapp-float"
+      >
+        <MessageCircle size={28} />
+      </motion.a>
+      <motion.a 
+        href="tel:+919979794000"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="phone-float"
+      >
+        <Phone size={28} />
+      </motion.a>
     </div>
   );
 }
+
