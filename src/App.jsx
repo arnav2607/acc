@@ -293,29 +293,35 @@ function Contact() {
             <h2>Get in Touch</h2>
             <p>Ready to discuss your logistics needs? Our team is here to help.</p>
 
-            <div className="contact-methods">
-              <a href="tel:+919825076200" className="contact-method">
-                <Phone />
-                <div>
+            <div className="contact-methods-grid">
+              <div className="contact-card">
+                <div className="contact-card-header">
+                  <Phone size={20} />
                   <span>Phone Numbers</span>
-                  <strong>+91 98250 76200</strong>
-                  <strong className="sub-detail">+91 99797 94000</strong>
                 </div>
-              </a>
-              <a href="mailto:acc@agrawalcargocarrier.com" className="contact-method">
-                <Mail />
-                <div>
+                <div className="contact-links-group">
+                  <a href="tel:+919825076200" className="individual-link">+91 98250 76200</a>
+                  <a href="tel:+919979794000" className="individual-link">+91 99797 94000</a>
+                </div>
+              </div>
+
+              <div className="contact-card">
+                <div className="contact-card-header">
+                  <Mail size={20} />
                   <span>Email Addresses</span>
-                  <strong>acc@agrawalcargocarrier.com</strong>
-                  <strong className="sub-detail">sma0831@gmail.com</strong>
                 </div>
-              </a>
-              <div className="contact-method">
-                <MapPin />
-                <div>
-                  <span>Visit Office</span>
-                  <strong>D-70/71, Main Market, Gandhidham, Kutch – 370201, Gujarat</strong>
+                <div className="contact-links-group">
+                  <a href="mailto:acc@agrawalcargocarrier.com" className="individual-link">acc@agrawalcargocarrier.com</a>
+                  <a href="mailto:sma0831@gmail.com" className="individual-link">sma0831@gmail.com</a>
                 </div>
+              </div>
+
+              <div className="contact-card">
+                <div className="contact-card-header">
+                  <MapPin size={20} />
+                  <span>Our Office</span>
+                </div>
+                <p className="address-text">D-70/71, Main Market, Gandhidham, Kutch – 370201, Gujarat</p>
               </div>
             </div>
           </div>

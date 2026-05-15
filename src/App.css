@@ -527,9 +527,67 @@ body {
   transition: transform 0.2s;
 }
 
-.contact-method:hover {
-  transform: translateX(10px);
+.contact-methods-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.contact-card {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #f1f5f9;
+  transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
   border-color: var(--accent);
+}
+
+.contact-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  color: var(--accent-dark);
+}
+
+.contact-card-header span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-light);
+}
+
+.contact-links-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.individual-link {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  transition: all 0.2s;
+  display: block;
+}
+
+.individual-link:hover {
+  color: var(--accent);
+  transform: translateX(5px);
+}
+
+.address-text {
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--primary);
 }
 
 .sub-detail {
