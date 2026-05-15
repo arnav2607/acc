@@ -299,13 +299,15 @@ function Contact() {
                 <div>
                   <span>Call Us</span>
                   <strong>+91 98250 76200</strong>
+                  <strong className="sub-detail">+91 99797 94000</strong>
                 </div>
               </a>
-              <a href="mailto:acc@agrawalcargocarrier.com" className="contact-method highlighted">
+              <a href="mailto:acc@agrawalcargocarrier.com" className="contact-method official">
                 <Mail />
                 <div>
-                  <span>Official Email</span>
+                  <span className="official-label">Official Domain Email</span>
                   <strong className="domain-email">acc@agrawalcargocarrier.com</strong>
+                  <span className="sub-detail">sma0831@gmail.com</span>
                 </div>
               </a>
               <div className="contact-method">
@@ -365,8 +367,8 @@ function Footer() {
           <div className="footer-contact-section">
             <h4>Contact Details</h4>
             <ul>
-              <li><Phone size={16} /> +91 98250 76200</li>
-              <li><Mail size={16} /> acc@agrawalcargocarrier.com</li>
+              <li><Phone size={16} /> <span>+91 98250 76200<br/>+91 99797 94000</span></li>
+              <li><Mail size={16} /> <span>acc@agrawalcargocarrier.com<br/>sma0831@gmail.com</span></li>
               <li><MapPin size={16} /> Gandhidham, Kutch, Gujarat</li>
             </ul>
           </div>
