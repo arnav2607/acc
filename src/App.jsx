@@ -301,11 +301,11 @@ function Contact() {
                   <strong>+91 98250 76200</strong>
                 </div>
               </a>
-              <a href="mailto:sma0831@gmail.com" className="contact-method">
+              <a href="mailto:acc@agrawalcargocarrier.com" className="contact-method highlighted">
                 <Mail />
                 <div>
-                  <span>Email Us</span>
-                  <strong>sma0831@gmail.com</strong>
+                  <span>Official Email</span>
+                  <strong className="domain-email">acc@agrawalcargocarrier.com</strong>
                 </div>
               </a>
               <div className="contact-method">
@@ -365,8 +365,8 @@ function Footer() {
           <div className="footer-contact-section">
             <h4>Contact Details</h4>
             <ul>
-              <li><Phone size={16} /> +91 99797 94000</li>
-              <li><Mail size={16} /> sma0831@gmail.com</li>
+              <li><Phone size={16} /> +91 98250 76200</li>
+              <li><Mail size={16} /> acc@agrawalcargocarrier.com</li>
               <li><MapPin size={16} /> Gandhidham, Kutch, Gujarat</li>
             </ul>
           </div>

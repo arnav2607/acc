@@ -532,6 +532,16 @@ body {
   border-color: var(--accent);
 }
 
+.contact-method.highlighted {
+  border: 2px solid var(--accent);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.domain-email {
+  color: var(--accent-dark);
+  font-size: 1.1rem;
+}
+
 .contact-method svg {
   color: var(--accent);
 }
